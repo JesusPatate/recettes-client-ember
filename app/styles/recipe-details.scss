@@ -1,0 +1,28 @@
+$sidebar-color: #808080;
+
+.sidebar {
+    font-size: small;
+    color: $sidebar-color;
+    border: 1px solid $sidebar-color;
+    padding: 1em;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.sidebar p {
+    margin: 0;
+}
+
+.sidebar p + p {
+    margin-top: 0.5em;
+}
+
+.details.times > * {
+    vertical-align: bottom;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.3em;
+}

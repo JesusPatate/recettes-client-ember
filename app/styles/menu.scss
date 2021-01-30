@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "shorelines";
+    src: url("/fonts/shorelines.otf") format("opentype");
+}
+
+.menu {
+    background-color: #24292e;
+    padding: 10px 0px;
+}
+
+.menu a {
+    text-align: center;
+    display: block;
+    width: fit-content;
+    margin : auto;
+}
+
+.menu h1 {
+    font-size: 1.5em;
+    font-family: shorelines;
+    font-weight: normal;
+    color: white;
+    width: fit-content;
+    margin: 0;
+    user-select: none;
+}

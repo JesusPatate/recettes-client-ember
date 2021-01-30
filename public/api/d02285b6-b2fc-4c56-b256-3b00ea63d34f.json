@@ -1,0 +1,47 @@
+{
+    "id": "d02285b6-b2fc-4c56-b256-3b00ea63d34f",
+    "title": "Beignets de carnaval",
+    "hot": false,
+    "dessert": true,
+    "preparationTime": 20,
+    "cookingTime": 5,
+    "servings": 8,
+    "source": "https://www.marmiton.org/recettes/recette_beignets-de-carnaval-alsace_12895.aspx",
+    "ingredients": [
+        {
+            "name": "farine",
+            "amount": 500,
+            "unit": "GRAMS"
+        },
+        {
+            "name": "oeufs",
+            "amount": 2,
+            "unit": null
+        },
+        {
+            "name": "beurre",
+            "amount": 50,
+            "unit": "GRAMS"
+        },
+        {
+            "name": "levure de bière",
+            "amount": 20,
+            "unit": "GRAMS"
+        },
+        {
+            "name": "lait",
+            "amount": 25,
+            "unit": "CENTILITRES"
+        },
+        {
+            "name": "sucre",
+            "amount": 3,
+            "unit": "TEASPOON"
+        },
+        {
+            "name": "sel",
+            "amount": null,
+            "unit": null
+        }
+    ]
+}

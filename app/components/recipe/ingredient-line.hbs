@@ -1,0 +1,15 @@
+<div class="ingredient-line">
+    <Input @type="text" @value={{@name}} title="Nom" id="name" />
+    <Input @type="number" min=1 @value={{@amount}} title="Quantité" id="amount" />
+    <select title="Unité" id="unit" value={{@unit}}>
+        <option selected disabled value="">Unité</option>
+        <option value="">Pas d'unité</option>
+        <option value="GRAMS">Grammes</option>
+        <option value="CENTILITRES">Centilitres</option>
+        <option value="TEASPOON">Cuillères à café</option>
+        <option value="TABLESPOON">Cuillères à soupe</option>
+    </select>
+    <a class="rem-ingredient" {{on "click" (fn @onRemove @index)}}>
+        <MdiIcon @icon="close-circle-outline" @size="1em" />
+    </a>
+</div>

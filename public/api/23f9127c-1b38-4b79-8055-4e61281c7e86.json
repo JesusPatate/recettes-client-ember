@@ -1,0 +1,27 @@
+{
+    "id": "23f9127c-1b38-4b79-8055-4e61281c7e86",
+    "title": "Mousse chocolat-menthe",
+    "hot": false,
+    "dessert": true,
+    "preparationTime": 15,
+    "cookingTime": 5,
+    "servings": 6,
+    "source": "https://www.marmiton.org/recettes/recette_mousse-chocolat-menthe_92460.aspx",
+    "ingredients": [
+        {
+            "name": "chocolat noir dessert",
+            "amount": 150,
+            "unit": "GRAMS"
+        },
+        {
+            "name": "oeufs",
+            "amount": 6,
+            "unit": null
+        },
+        {
+            "name": "After Eight",
+            "amount": 50,
+            "unit": "GRAMS"
+        }
+    ]
+}

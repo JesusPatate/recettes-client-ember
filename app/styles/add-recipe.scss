@@ -1,0 +1,71 @@
+.recipe-form {
+    display: grid;
+    grid-template-columns: min-content;
+    grid-template-rows: min-content min-content;
+    row-gap: 1vh;
+}
+
+.recipe-form .fields {
+    display: grid;
+    grid-template-columns: max-content min-content;
+    column-gap: 1vmin;
+    row-gap: 1vmin;
+    justify-items: stretch;
+}
+
+.recipe-form input[type=text] {
+    min-width: 20vw;
+}
+
+.recipe-form input[type=number] {
+    width: 5vw;
+    min-width: 3rem;
+}
+
+.recipe-form #servings, #preparationTime, #cookingTime {
+    margin-right: 3px;
+}
+
+.recipe-form label {
+    text-align: end;
+}
+
+.recipe-form .ingredient-line {
+    display: inline-grid;
+    grid-template-columns: 2fr min-content min-content min-content min-content;
+    justify-items: stretch;
+}
+
+.recipe-form .ingredient-line input + input, input + select {
+    margin-left: 3px;
+}
+
+.recipe-form .ingredient-line button {
+    margin-left: 3px;
+}
+
+.recipe-form .ingredient-line + .ingredient-line {
+    margin-top: 1vh;
+}
+
+#ingredient-lines {
+    border-left: 3px solid rgb(202, 202, 202);
+    padding: 1vmin;
+}
+
+.rem-ingredient {
+    align-self: center;
+    margin-left: 1vmin;
+}
+
+svg {
+    margin-top: 0.2em;
+}
+
+.recipe-form #add-ingredient {
+    margin-top: 1vh;
+}
+
+.recipe-form #cancel-validate {
+    justify-self: end;
+}

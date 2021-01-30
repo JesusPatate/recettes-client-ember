@@ -1,0 +1,61 @@
+#recipe-list {
+    display: grid;
+    grid-gap: 10px;
+}
+
+@media screen and (max-width: 640px) {
+    #recipe-list {
+        grid-template-columns: auto;
+    }
+
+    #recipe-list button {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 800px) {
+    #recipe-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #recipe-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#recipe-list article {
+    display: inline-grid;
+    grid-template-columns: minmax(max-content, 2fr) max-content max-content;
+    padding: 1vw;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+#recipe-list article a {
+    margin-right: 1vw;
+}
+
+.float{
+    position:fixed;
+    width: 10vmin;
+    min-width: 40px;
+    max-width: 50px;
+    height: 10vmin;
+    min-height: 40px;
+    max-height: 50px;
+    bottom:5vmin;
+    right:5vmin;
+    background-color:#24292e;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+  }
+  
+  .my-float{
+    width: 25px;
+    height: 25px;
+    margin-top: max(11px, 1.8vmin);
+  }

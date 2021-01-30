@@ -1,0 +1,11 @@
+<h2>Liste des recettes</h2>
+
+<div id="recipe-list">
+    {{#each @model as |recipe|}}
+    <Recipe @recipe={{recipe}} />
+    {{/each}}
+</div>
+
+<a href="recipes/add" title="Nouvelle recette" class="float">
+    <MdIcon @icon="text-box-plus" class="my-float" @title="Nouvelle recette" />
+</a>

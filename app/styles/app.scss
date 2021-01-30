@@ -1,0 +1,29 @@
+@use 'menu';
+@use 'index';
+@use 'recipe-details';
+@use 'add-recipe';
+
+@import "ember-mdi";
+
+@font-face {
+    font-family: "gravity";
+    src: url("/fonts/gravity.otf") format("opentype");
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+body {
+    font-family: gravity, "Bitstream Vera Serif", x-locale-body, sans-serif;
+    margin: 0;
+}
+
+.body {
+    margin: 0 2vw;
+}
+
+a {
+    text-decoration: none;
+}
