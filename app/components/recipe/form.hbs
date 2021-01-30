@@ -1,24 +1,34 @@
+<p class="error">
+    {{this.error}}
+</p>
 <form class="recipe-form">
     <div class="fields">
         <label for="title">Titre : </label><Input @type="text" @value={{this.title}} id="title" />
         <label for="hot">Plat chaud : </label><Input @type="checkbox" @checked={{this.hot}} id="hot" />
         <label for="dessert">Dessert : </label><Input @type="checkbox" @checked={{this.dessert}} id="dessert" />
-        <label for="servings">Pour : </label><span><Input @type="number" @value={{this.servings}} min="1" id="servings" /> personne(s)</span>
-        <label for="preparationTime">Préparation : </label><span><Input @type="number" @value={{this.preparationTime}} min="1" id="preparationTime" /> minute(s)</span>
-        <label for="cookingTime">Cuisson : </label><span><Input @type="number" @value={{this.cookingTime}} min="0" id="cookingTime" /> minute(s)</span>
+        <label for="servings">Pour : </label><span><Input @type="number" @value={{this.servings}} min="1" id="servings" /> personnes</span>
+        <label for="preparationTime">Préparation : </label><span><Input @type="number" @value={{this.preparationTime}} min="1" id="preparationTime" /> minutes</span>
+        <label for="cookingTime">Cuisson : </label><span><Input @type="number" @value={{this.cookingTime}} min="0" id="cookingTime" /> minutes</span>
         <label for="source">Source : </label><Input @type="text" @value={{this.source}} id="source" />
 
         <label>Ingredients :</label>
         <div id="ingredient-lines">
             {{#each this.ingredients as |ingredient index|}}
-                <Recipe::IngredientLine 
-                    @name={{ingredient.name}}
-                    @amount={{ingredient.amount}} 
-                    @unit={{ingredient.unit}} 
-                    @index={{index}}
-                    @onAdd={{this.addIngredient}}
-                    @onRemove={{this.removeIngredient}}
-                />
+                <div class="ingredient-line">
+                    <Input @type="text" @value={{ingredient.name}} title="Nom" id="name" />
+                    <Input @type="number" min=1 @value={{ingredient.amount}} title="Quantité" id="amount" />
+                    <select title="Unité" id="unit" {{on "change" (fn this.setUnit index)}}>
+                        <option selected disabled value="">Unité</option>
+                        <option value="">Pas d'unité</option>
+                        <option value="GRAMS">Grammes</option>
+                        <option value="CENTILITRES">Centilitres</option>
+                        <option value="TEASPOON">Cuillères à café</option>
+                        <option value="TABLESPOON">Cuillères à soupe</option>
+                    </select>
+                    <a class="rem-ingredient" {{on "click" (fn this.removeIngredient index)}}>
+                        <MdiIcon @icon="close-circle-outline" @size="1em" />
+                    </a>
+                </div>
             {{/each}}
 
             <button type="button" {{on "click" (fn this.addIngredient)}} id="add-ingredient">Ajouter un ingrédient</button>

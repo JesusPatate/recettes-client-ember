@@ -38,6 +38,14 @@ export default class RecipeModel extends Model {
         });
     }
 
+    set ingredients(ingredients) {
+        this._ingredients = ingredients;
+    }
+
+    get totalTime() {
+        return this.preparationTime + this.cookingTime;
+    }
+
     capitalize(string) {
         return string.replace(/^\w/, c => c.toUpperCase());
     }

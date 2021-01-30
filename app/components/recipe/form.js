@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { v4 as uuid } from 'uuid';
 
 export default class RecipeFormComponent extends Component {
 
@@ -13,6 +14,8 @@ export default class RecipeFormComponent extends Component {
     @tracked cookingTime = 0;
     @tracked source;
     ingredients = [];
+
+    @tracked error;
 
     @service router;
     @service store;
@@ -41,13 +44,20 @@ export default class RecipeFormComponent extends Component {
     }
 
     @action
+    setUnit(index, event) {
+        let unit = event.target.value;
+        this.ingredients[index].unit = unit.length > 0 ? unit : undefined;
+    }
+
+    @action
     cancel() {
         this.router.transitionTo('/');
     }
 
     @action
     save() {
-        this.store.createRecord('recipe', {
+        let recipe = this.store.createRecord('recipe', {
+            id: uuid(),
             title: this.title,
             hot: this.hot,
             dessert: this.dessert,
@@ -57,5 +67,9 @@ export default class RecipeFormComponent extends Component {
             source: this.source,
             ingredients: this.ingredients
         });
+
+        recipe.save()
+            .then(() => this.router.transitionTo('/'))
+            .catch(error => alert(error));
     }
 }
