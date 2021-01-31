@@ -6,11 +6,7 @@
     <p class="details servings">{{@recipe.servings}} personnes</p>
     <p class="details times"><MdIcon @icon="clock-outline" @size=18 @title="Temps total" /> {{@recipe.totalTime}} minutes : <MdIcon @icon="silverware" @size=18 @title="Temps de préparation" /> {{@recipe.preparationTime}} minutes - <MdIcon @icon="stove" @size=18 @title="Temps de cuisson" /> {{@recipe.cookingTime}} minutes</p>
     <p class="details source">
-        {{#if (fn isUrl @recipe.source)}}
-            Source : <a href="{{@recipe.source}}" target="_blank" rel="noopener noreferrer">{{getdomainurl @recipe.source 0 1}}</a>
-        {{else}}
-            Source : {{@recipe.source}}
-        {{/if}}
+        Source : {{{this.source}}}
     </p>
 </div>
 
