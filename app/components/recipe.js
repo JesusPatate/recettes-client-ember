@@ -7,10 +7,12 @@ export default class RecipeComponent extends Component {
     @service store;
 
     @action
-    deleteRecipe(id) {
-        let recipe = this.store.peekRecord('recipe', id);
+    deleteRecipe(recipe) {
+        let record = this.store.peekRecord('recipe', recipe.id);
         
-        recipe.destroyRecord()
-        .catch(error => alert(error));
+        if(confirm(`Supprimer la recette "${recipe.title}" ?`)) {
+            record.destroyRecord()
+            .catch(error => alert(error));
+        }
     }
 }
