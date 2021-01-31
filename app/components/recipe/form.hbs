@@ -14,21 +14,7 @@
         <label>Ingredients :</label>
         <div id="ingredient-lines">
             {{#each this.ingredients as |ingredient index|}}
-                <div class="ingredient-line">
-                    <Input @type="text" @value={{ingredient.name}} title="Nom" id="name" />
-                    <Input @type="number" min=1 @value={{ingredient.amount}} title="Quantité" id="amount" />
-                    <select title="Unité" id="unit" {{on "change" (fn this.setUnit index)}}>
-                        <option selected disabled value="">Unité</option>
-                        <option value="">Pas d'unité</option>
-                        <option value="GRAMS">Grammes</option>
-                        <option value="CENTILITRES">Centilitres</option>
-                        <option value="TEASPOON">Cuillères à café</option>
-                        <option value="TABLESPOON">Cuillères à soupe</option>
-                    </select>
-                    <a class="rem-ingredient" {{on "click" (fn this.removeIngredient index)}}>
-                        <MdiIcon @icon="close-circle-outline" @size="1em" />
-                    </a>
-                </div>
+                <Recipe::IngredientLine @ingredient={{ingredient}} @onDelete={{this.removeIngredient}}></Recipe::IngredientLine>
             {{/each}}
 
             <button type="button" {{on "click" (fn this.addIngredient)}} id="add-ingredient">Ajouter un ingrédient</button>

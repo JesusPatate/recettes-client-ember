@@ -1,0 +1,14 @@
+<div class="ingredient-line">
+    <Input @type="text" @value={{@ingredient.name}} title="Nom" id="name" />
+    <Input @type="number" min=1 @value={{@ingredient.amount}} title="Quantité" id="amount" />
+    <NativeSelectBox @value={{@ingredient.unit}} @onSelect={{this.updateUnit}} as |sb|>
+        <sb.Option>Pas d'unité</sb.Option>
+        <sb.Option @value="GRAMS">Grammes</sb.Option>
+        <sb.Option @value="CENTILITRES">Centilitres</sb.Option>
+        <sb.Option @value="TEASPOON">Cuillères à café</sb.Option>
+        <sb.Option @value="TABLESPOON">Cuillères à soupe</sb.Option>
+    </NativeSelectBox>
+    <a class="rem-ingredient" {{on "click" (fn @onDelete @ingredient)}}>
+        <MdIcon @icon="close-circle-outline" @size="1em" />
+    </a>
+</div>

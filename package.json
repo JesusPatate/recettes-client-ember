@@ -24,6 +24,7 @@
     "@glimmer/component": "^1.0.2",
     "@glimmer/tracking": "^1.0.2",
     "@mdi/svg": "^5.9.55",
+    "@zestia/ember-select-box": "^15.1.2",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.6.0",

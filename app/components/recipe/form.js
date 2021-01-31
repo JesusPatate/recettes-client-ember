@@ -22,7 +22,20 @@ export default class RecipeFormComponent extends Component {
 
     constructor() {
         super(...arguments);
-        this.addIngredient();
+        let recipe = this.args.recipe;
+
+        if (recipe) {
+            this.title = recipe.title;
+            this.hot = recipe.hot;
+            this.dessert = recipe.dessert;
+            this.servings = recipe.servings;
+            this.preparationTime = recipe.preparationTime;
+            this.cookingTime = recipe.cookingTime;
+            this.source = recipe.source;
+            this.ingredients = recipe._ingredients.map(i => ({...i}))
+        } else {
+            this.addIngredient();
+        }
     }
 
     @action
@@ -35,8 +48,8 @@ export default class RecipeFormComponent extends Component {
     }
 
     @action
-    removeIngredient(index) {
-        this.ingredients.removeAt(index);
+    removeIngredient(ingredient) {
+        this.ingredients.removeObject(ingredient);
 
         if (this.ingredients.length == 0) {
             this.addIngredient();
@@ -56,7 +69,15 @@ export default class RecipeFormComponent extends Component {
 
     @action
     save() {
-        let recipe = this.store.createRecord('recipe', {
+        if (this.args.recipe) {
+            this.update();
+        } else {
+            this.create();
+        }
+    }
+
+    create() {
+        let record = this.store.createRecord('recipe', {
             id: uuid(),
             title: this.title,
             hot: this.hot,
@@ -68,8 +89,27 @@ export default class RecipeFormComponent extends Component {
             ingredients: this.ingredients
         });
 
-        recipe.save()
+        record.save()
             .then(() => this.router.transitionTo('/'))
             .catch(error => alert(error));
+    }
+
+    update() {
+        let record = this.store.peekRecord('recipe', this.args.recipe.id);
+        record.title = this.title;
+        record.hot = this.hot;
+        record.dessert = this.dessert;
+        record.servings = this.servings;
+        record.preparationTime = this.preparationTime;
+        record.cookingTime = this.cookingTime;
+        record.source = this.source;
+        record.ingredients = this.ingredients;
+
+        record.save()
+            .then(() => this.router.transitionTo('/'))
+            .catch(error => {
+                record.rollbackAttributes();
+                alert(error);
+            }); 
     }
 }
