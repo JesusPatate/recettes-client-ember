@@ -1,13 +1,13 @@
 <!-- Affichage des détails d'une recette -->
 
-<h2 class='details title'>{{@recipe.title}}</h2>
+<h2 class='recipe-details title'>{{@recipe.title}}</h2>
 
-<div class="details sidebar">
-    <p class="details servings">{{@recipe.servings}} personnes</p>
-    <p class="details times"><MdIcon @icon="clock-outline" @size=18 @title="Temps total" /> {{@recipe.totalTime}} minutes : <MdIcon @icon="silverware" @size=18 @title="Temps de préparation" /> {{@recipe.preparationTime}} minutes - <MdIcon @icon="stove" @size=18 @title="Temps de cuisson" /> {{@recipe.cookingTime}} minutes</p>
-    <p class="details source">
-        Source : {{{this.source}}}
-    </p>
+<div class="recipe-details sidebar">
+    <p>{{@recipe.servings}} personnes</p>
+    <p class="recipe-details times"><MdIcon @icon="clock-outline" @size=18 @title="Temps total" /> {{@recipe.totalTime}} minutes : <MdIcon @icon="silverware" @size=18 @title="Temps de préparation" /> {{@recipe.preparationTime}} minutes - <MdIcon @icon="stove" @size=18 @title="Temps de cuisson" /> {{@recipe.cookingTime}} minutes</p>
+    {{#if @recipe.source}}
+    <p>Source : {{{this.source}}}</p>
+    {{/if}}
 </div>
 
 <p class="details ingredients">
@@ -21,4 +21,5 @@
     </ul>
 </p>
 
-<LinkTo @route="edit-recipe" @model={{@recipe}}>Editer</LinkTo>
+<LinkTo @route="edit-recipe" @model={{@recipe}} @class="recipe-details button">Editer</LinkTo>
+<a href="#" class="recipe-details button" {{on "click" (fn this.deleteRecipe @recipe)}}>Supprimer</a>

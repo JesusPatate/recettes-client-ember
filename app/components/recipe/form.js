@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { v4 as uuid } from 'uuid';
 
 export default class RecipeFormComponent extends Component {
 
@@ -78,7 +77,6 @@ export default class RecipeFormComponent extends Component {
 
     create() {
         let record = this.store.createRecord('recipe', {
-            id: uuid(),
             title: this.title,
             hot: this.hot,
             dessert: this.dessert,
