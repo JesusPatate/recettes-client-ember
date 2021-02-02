@@ -2,7 +2,9 @@
 
 <div id="recipe-list">
     {{#each @model as |recipe|}}
-    <Recipe @recipe={{recipe}} />
+    <article class="recipe">
+        <LinkTo @route="recipe-details" @model={{recipe}}>{{recipe.title}}</LinkTo>
+    </article>
     {{/each}}
 </div>
 
