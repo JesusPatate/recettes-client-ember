@@ -39,23 +39,19 @@
 
 .float{
     position:fixed;
-    width: 10vmin;
-    min-width: 40px;
-    max-width: 50px;
-    height: 10vmin;
-    min-height: 40px;
-    max-height: 50px;
+    width: 3em;
+    height: 3em;
     bottom:5vmin;
     right:5vmin;
     background-color:#24292e;
     color:#FFF;
-    border-radius:50px;
+    border-radius:2em;
     text-align:center;
     box-shadow: 2px 2px 3px #999;
   }
   
   .my-float{
-    width: 25px;
-    height: 25px;
-    margin-top: max(11px, 1.8vmin);
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 0.75em;
   }
