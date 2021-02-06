@@ -1,12 +1,6 @@
-<h2>Liste des recettes</h2>
+<h1 class="title">Liste des recettes</h1>
 
-<div id="recipe-list">
-    {{#each @model as |recipe|}}
-    <article class="recipe">
-        <LinkTo @route="recipe-details" @model={{recipe}}>{{recipe.title}}</LinkTo>
-    </article>
-    {{/each}}
-</div>
+<RecipeList @recipes={{@model}}></RecipeList>
 
 <a href="recipes/add" title="Nouvelle recette" class="float">
     <MdIcon @icon="text-box-plus" class="my-float" @title="Nouvelle recette" />

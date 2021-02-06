@@ -1,28 +1,98 @@
 <p class="error">
     {{this.error}}
 </p>
-<form class="recipe-form">
-    <div class="fields">
-        <label for="title">Titre : </label><Input @type="text" @value={{this.title}} id="title" />
-        <label for="hot">Plat chaud : </label><Input @type="checkbox" @checked={{this.hot}} id="hot" />
-        <label for="dessert">Dessert : </label><Input @type="checkbox" @checked={{this.dessert}} id="dessert" />
-        <label for="servings">Pour : </label><span><Input @type="number" @value={{this.servings}} min="1" id="servings" /> personnes</span>
-        <label for="preparationTime">Préparation : </label><span><Input @type="number" @value={{this.preparationTime}} min="1" id="preparationTime" /> minutes</span>
-        <label for="cookingTime">Cuisson : </label><span><Input @type="number" @value={{this.cookingTime}} min="0" id="cookingTime" /> minutes</span>
-        <label for="source">Source : </label><Input @type="text" @value={{this.source}} id="source" />
 
-        <label>Ingredients :</label>
-        <div id="ingredient-lines">
-            {{#each this.ingredients as |ingredient index|}}
-                <Recipe::IngredientLine @ingredient={{ingredient}} @onDelete={{this.removeIngredient}}></Recipe::IngredientLine>
-            {{/each}}
-
-            <button type="button" {{on "click" (fn this.addIngredient)}} id="add-ingredient">Ajouter un ingrédient</button>
+<div class="columns">
+<form class="recipe-form column is-three-quarters-widescreen">
+    <div class="field">
+        <label class="label" for="title">Titre</label>
+        <div class="control">
+            <Input @type="text" class="input" @value={{this.title}} id="title" />
         </div>
     </div>
-    
-    <div id="cancel-validate">
-        <button type="button" {{on "click" (fn this.cancel)}}>Annuler</button>
-        <button type="button" {{on "click" (fn this.save)}}>Valider</button>
+
+    <div class="field">
+        <div class="control">
+            <label class="checkbox" for="hot">
+                <Input @type="checkbox" @checked={{this.hot}} id="hot" />
+                Plat chaud
+            </label>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <label class="checkbox" for="dessert">
+                <Input @type="checkbox" @checked={{this.dessert}} id="dessert" />
+                Dessert
+            </label>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="servings">Nombre de parts</label>
+        <div class="field has-addons">
+            <div class="control">
+                <Input @type="number" class="input" @value={{this.servings}} min="1" id="servings" />
+            </div>
+            <div class="control">
+                <a class="button is-static">personnes</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="preparationTime">Temps de préparation</label>
+        <div class="field has-addons">
+            <div class="control">
+                <Input class="input" @type="number" @value={{this.preparationTime}} min="1" id="preparationTime" />
+            </div>
+            <div class="control">
+                <a class="button is-static">minutes</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="cookingTime">Temps de cuisson</label>
+        <div class="field has-addons">
+            <div class="control">
+                <Input class="input" @type="number" @value={{this.cookingTime}} min="0" id="cookingTime" />
+            </div>
+            <div class="control">
+                <a class="button is-static">minutes</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="source">Source</label>
+        <div class="control">
+            <Input @type="text" @value={{this.source}} id="source" class="input" />
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Ingédients</label>
+        {{#each this.ingredients as |ingredient index|}}
+            <Recipe::IngredientLine @ingredient={{ingredient}} @onDelete={{this.removeIngredient}} />
+        {{/each}}
+    </div>
+
+    <div class="field">
+        <button type="button" class="button" {{on "click" (fn this.addIngredient)}} id="add-ingredient">
+            Ajouter un ingrédient
+        </button>
+    </div>
+
+    <div class="field is-grouped is-grouped-right">
+        <div class="control">
+            <button type="button" class="button" {{on "click" (fn this.cancel)}}>Annuler</button>
+        </div>
+        <div class="control">
+            <button type="button" class="button" {{on "click" (fn this.save)}}>Valider</button>
+        </div>
     </div>
 </form>
+</div>

@@ -1,0 +1,28 @@
+<form class="recipe-list block" id="search-field" {{on "submit" (fn this.search)}}>
+    <div class="field has-addons">
+        <div class="control">
+            <input type="text" class="recipe-list input" id="search-input" placeholder="Rechercher">
+        </div>
+        <div class="control">
+            <button type="button" class="button" {{on 'click' (fn this.search)}}>
+                <MdIcon @icon="check" @size=1rem @title="Rechercher" />
+            </button>
+        </div>
+        <div class="control">
+            <button type="button" class="button" {{on 'click' (fn this.cancelSearch)}}>
+                <MdIcon @icon="close" @size=1rem @title="Effacer" />
+            </button>
+        </div>
+    </div>
+</form>
+
+<div class="block" id="recipe-list">
+    {{#if this.isEmpty}}
+        <p>Aucune recette trouvée :(</p>
+    {{/if}}
+    {{#each this.recipes as |recipe|}}
+        <article class="notification py-2 px-3 m-0">
+            <LinkTo @route="recipe-details" @model={{recipe}}>{{recipe.title}}</LinkTo>
+        </article>
+    {{/each}}
+</div>

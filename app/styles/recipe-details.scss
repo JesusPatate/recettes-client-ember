@@ -1,26 +1,11 @@
 $sidebar-color: #808080;
 
-.recipe-details.sidebar {
-    font-size: small;
-    color: $sidebar-color;
-    border: 1px solid $sidebar-color;
-    padding: 1em;
+.recipe-details.notification {
     width: fit-content;
-    border-radius: 10px;
+    line-height: 200%;
+    font-size: 0.85rem;
 }
 
-.recipe-details.sidebar p {
-    margin: 0;
-}
-
-.recipe-details.sidebar p + p {
-    margin-top: 0.5em;
-}
-
-.recipe-details.times > * {
-    vertical-align: bottom;
-}
-
-.recipe-details.button + .recipe-details.button {
-    margin-left: 1vw;
+.recipe-details .gray {
+    color: gray;
 }

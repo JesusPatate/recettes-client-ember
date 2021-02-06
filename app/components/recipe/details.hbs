@@ -2,24 +2,61 @@
 
 <h2 class='recipe-details title'>{{@recipe.title}}</h2>
 
-<div class="recipe-details sidebar">
+<div class="recipe-details notification">
     <p>{{@recipe.servings}} personnes</p>
-    <p class="recipe-details times"><MdIcon @icon="clock-outline" @size=18 @title="Temps total" /> {{@recipe.totalTime}} minutes : <MdIcon @icon="silverware" @size=18 @title="Temps de préparation" /> {{@recipe.preparationTime}} minutes - <MdIcon @icon="stove" @size=18 @title="Temps de cuisson" /> {{@recipe.cookingTime}} minutes</p>
+    <p>
+        <span class="icon-text" title="Temps total">
+            <span class="icon">
+                <MdIcon @icon="clock-outline" @size=1rem />
+            </span>
+            {{@recipe.totalTime}} minutes :
+        </span>
+
+        <span class="icon-text" title="Temps de préparation">
+            <span class="icon">
+                <MdIcon @icon="silverware" @size=1rem />
+            </span>
+            {{@recipe.preparationTime}} minutes -
+        </span>
+
+        <span class="icon-text" title="Temps de cuisson">
+            <span class="icon">
+                <MdIcon @icon="stove" @size=1rem />
+            </span>
+            {{@recipe.cookingTime}} minutes
+        </span>
+    </p>
     {{#if @recipe.source}}
     <p>Source : {{{this.source}}}</p>
     {{/if}}
 </div>
 
-<p class="details ingredients">
-    Ingrédients :
-    <ul>
-        {{#each @recipe.ingredients as |ingredient|}}
-            <li class="details ingredient">
-                {{ingredient.name}} {{#if ingredient.amount}} : {{ingredient.amount}}{{/if}} {{if ingredient.unit ingredient.unit}}
+<div class="content">
+    <p>
+        Ingrédients :
+        <ul>
+            {{#each @recipe.ingredients as |ingredient|}}
+            <li class="recipe-details ingredient">
+                {{ingredient.name}}
+                {{#if ingredient.amount}} :
+                <span class="gray">
+                    {{ingredient.amount}}
+                    {{if ingredient.unit ingredient.unit}}
+                </span>
+                {{/if}}
             </li>
-        {{/each}}
-    </ul>
-</p>
+            {{/each}}
+        </ul>
+    </p>
+</div>
 
-<LinkTo @route="edit-recipe" @model={{@recipe}} @class="recipe-details button">Editer</LinkTo>
-<a href="#" class="recipe-details button" {{on "click" (fn this.deleteRecipe @recipe)}}>Supprimer</a>
+<div class="field is-grouped">
+    <p class="control">
+        <LinkTo @route="edit-recipe" @model={{@recipe}} @class="recipe-details button is-dark is-outlined">Editer
+        </LinkTo>
+    </p>
+    <p class="control">
+        <a href="#" class="recipe-details button is-danger is-outlined" {{on "click" (fn this.deleteRecipe
+            @recipe)}}>Supprimer</a>
+    </p>
+</div>
