@@ -50,7 +50,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV.API = {
+      host: 'www.ggautier.fr',
+      port: 8080,
+      ssl: false
+    };
   }
 
   return ENV;

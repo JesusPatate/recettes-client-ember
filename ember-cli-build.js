@@ -5,7 +5,7 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'ember-mdi': {
-      // icons: ['clock-outline', 'silverware', 'stove', 'text-box-plus', 'close-circle'],
+      icons: ['check', 'clock-outline', 'close', 'delete-forever', 'silverware', 'stove', 'text-box-plus'],
     }
   });
 
