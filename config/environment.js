@@ -51,8 +51,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.API = {
-      host: 'www.ggautier.fr/api',
-      port: 80,
+      // host: 'www.ggautier.fr/api/recipes',
+      host: '192.168.1.24/api/recipes',
       ssl: false
     };
   }

@@ -12,7 +12,7 @@ export default class RecipeAdapter extends RESTAdapter {
 
     _getApiUrl() {
         let protocol = ENV.API.ssl ? "https" : "http";
-        return protocol + '://' + ENV.API.host + ":" + ENV.API.port;
+        return protocol + '://' + ENV.API.host + (ENV.API.port ? ":" + ENV.API.port : "");
     }
 }
 
