@@ -2,6 +2,6 @@
 
 <RecipeList @recipes={{@model}}></RecipeList>
 
-<a href="recipes/add" title="Nouvelle recette" class="float">
+<LinkTo @route="add-recipe" title="Nouvelle recette" class="float">
     <MdIcon @icon="text-box-plus" class="my-float" @title="Nouvelle recette" />
-</a>
+</LinkTo>

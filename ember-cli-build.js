@@ -5,7 +5,10 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'ember-mdi': {
-      icons: ['check', 'clock-outline', 'close', 'delete-forever', 'silverware', 'stove', 'text-box-plus'],
+      icons: ['check', 'clock-outline', 'close', 'delete-forever', 'silverware', 'stove', 'text-box-plus']
+    },
+    fingerprint: {
+      prepend: 'http://www.ggautier.fr/'
     }
   });
 
